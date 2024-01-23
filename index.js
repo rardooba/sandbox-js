@@ -1,20 +1,30 @@
-// reduce(arr, callback, initialValue)
-// callback(acc, curr, i)
+// some()
 
-const numbers = [1, 2, 3]
+const fruits = ["🍏", "🍏", "🍏"]
 
-const reduce = (arr, callback, initialValue) => {
+const some = (arr, callback) => {
 
-  let accumulator = initialValue ?? arr[0]
 
-  const isInitialValue = initialValue !== undefined
 
-for(let i = isInitialValue ? 0 : 1; i < arr.length; i++) {
-    const current = arr[i]
-    accumulator = callback(accumulator, current)
+  for(let i = 0; i < arr.length; i++) {
+
+    if(callback(arr[i], i, arr)) return true
   }
 
-  return accumulator
+  return false
 }
 
-console.log(reduce(numbers, (acc, curr) => acc + curr, []))
+//
+const every = (arr, callback) => {
+
+
+
+  for(let i = 0; i < arr.length; i++) {
+
+    if(!callback(arr[i], i, arr)) return false
+  }
+
+  return true
+}
+
+console.log(every(fruits, (item) => item === "🍏"))
