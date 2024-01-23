@@ -1,5 +1,5 @@
 const arr = ["😀", "🐶", "🍏", 1, 2, 3, 4];
 
-const [first, ...rest] = arr;
+const [...rest] = arr;
 
-console.log(first, rest);
+console.log(JSON.stringify(arr) === JSON.stringify(rest));
