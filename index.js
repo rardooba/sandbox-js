@@ -1,8 +1,20 @@
-// 
+// reduce(arr, callback, initialValue)
+// callback(acc, curr, i)
 
+const numbers = [1, 2, 3]
 
-const url = "http://user/profile"
-//(item) => Boolean(item)
-const createPath = (url) => url.split("/").filter(Boolean).filter((item) => item !== "http:").map(item => item + "/").join("")
+const reduce = (arr, callback, initialValue) => {
 
-console.log(createPath(url))
+  let accumulator = initialValue ?? arr[0]
+
+  const isInitialValue = initialValue !== undefined
+
+for(let i = isInitialValue ? 0 : 1; i < arr.length; i++) {
+    const current = arr[i]
+    accumulator = callback(accumulator, current)
+  }
+
+  return accumulator
+}
+
+console.log(reduce(numbers, (acc, curr) => acc + curr, 0))
