@@ -1,10 +1,5 @@
-let arr = [1, 2, 3]
+const arr = ["😀", "🐶", "🍏", 1, 2, 3, 4];
 
-let arr1 = [...arr]
+const [first, ...rest] = arr;
 
-arr[0] = 3
-arr1[0] = "Rar"
-
-
-
-console.log(arr.unshift("Rar"), arr1.push(34), arr, arr1)
+console.log(first, rest);
