@@ -1,21 +1,8 @@
-// forEach(arr, callback)
-const numbers = [1, 2, 3, 34, -5, 0]
-
-const filter = (arr, callback) => {
-
-  let newArr = []
-
-  for(let i = 0; i < arr.length; i++) {
-    if(callback(arr[i])) {
-      newArr.push(arr[i])  
-    } 
-
-  }
-
-  return newArr
+// 
 
 
-}
+const url = "http://user/profile"
+//(item) => Boolean(item)
+const createPath = (url) => url.split("/").filter(Boolean).filter((item) => item !== "http:").map(item => item + "/").join("")
 
-
-console.log(filter(numbers, (item) => item % 2 === 0))
+console.log(createPath(url))
