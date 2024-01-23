@@ -1,9 +1,17 @@
 // forEach(arr, callback)
 const numbers = [1, 2, 3]
-let arr = []
-numbers.forEach((item) => {
-  arr.push(item * 2)
-})
+
+const map = (arr, callback) => {
+
+  let newArr = []
+
+  for(let i = 0; i < arr.length; i++) {
+    newArr.push(callback(arr[i]))
+  }
+
+  return newArr
+
+}
 
 
-console.log(numbers, arr)
+console.log(map(numbers, (item) => item * 2))
