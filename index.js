@@ -1,5 +1,9 @@
-const arr = ["😀", "🐶", "🍏", 1, 2, 3, 4];
+// forEach(arr, callback)
+const numbers = [1, 2, 3]
+let arr = []
+numbers.forEach((item) => {
+  arr.push(item * 2)
+})
 
-const [...rest] = arr;
 
-console.log(JSON.stringify(arr) === JSON.stringify(rest));
+console.log(numbers, arr)
