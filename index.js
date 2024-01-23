@@ -17,4 +17,4 @@ for(let i = isInitialValue ? 0 : 1; i < arr.length; i++) {
   return accumulator
 }
 
-console.log(reduce(numbers, (acc, curr) => acc + curr, 0))
+console.log(reduce(numbers, (acc, curr) => acc + curr, []))
