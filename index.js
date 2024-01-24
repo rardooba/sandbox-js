@@ -1,15 +1,23 @@
-// findIndex fn
+// sort fn
 
-const arr = ["Rar", 1, true, 23, "🦄"]
+const arr = [2, 45, 78, 1]
 
-const findIndex = (arr, item) => {
+function sort(array) {
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === item) return i
+  for (let i = 0; i < array.length - 1; i++) {
+    for (let j = 0; j < array.length - 1 - i; j++) {
+      if (array[j] > array[j + 1]) {
+        // Échange les éléments si ils sont dans le mauvais ordre
+        const temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+      }
+    }
   }
 
-  return -1
-} 
+  return array;
+}
 
-console.log(findIndex(arr, "🦄")) // 4
-console.log(findIndex(arr, "🚀")) // -1
+
+console.log(sort(arr))
+
