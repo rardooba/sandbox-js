@@ -1,23 +1,17 @@
-// sort fn
+// reverse fn
 
-const arr = [2, 45, 78, 1]
+// const arr = [2, 45, 78, 1];
+const arr = ["Rar", 45, true, 1];
 
-function sort(array) {
+const reverse = (arr) => {
 
-  for (let i = 0; i < array.length - 1; i++) {
-    for (let j = 0; j < array.length - 1 - i; j++) {
-      if (array[j] > array[j + 1]) {
-        // Échange les éléments si ils sont dans le mauvais ordre
-        const temp = array[j];
-        array[j] = array[j + 1];
-        array[j + 1] = temp;
-      }
-    }
+  const reversedArray = []
+
+  for (let index = arr.length - 1; index >= 0; index--) {
+    reversedArray.push(arr[index])
   }
 
-  return array;
-}
+  return reversedArray
+};
 
-
-console.log(sort(arr))
-
+console.log(reverse(arr));
