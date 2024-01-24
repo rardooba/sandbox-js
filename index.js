@@ -1,14 +1,15 @@
-// find fn
+// findIndex fn
 
 const arr = ["Rar", 1, true, 23, "🦄"]
 
-const find = (arr, callback) => {
+const findIndex = (arr, item) => {
 
   for (let i = 0; i < arr.length; i++) {
-    if (callback(arr[i], i, arr)) return arr[i]
+    if (arr[i] === item) return i
   }
 
-  return undefined
+  return -1
 } 
 
-console.log(find(arr, item => item === "🐶"))
+console.log(findIndex(arr, "🦄")) // 4
+console.log(findIndex(arr, "🚀")) // -1
