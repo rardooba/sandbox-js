@@ -1,17 +1,23 @@
-// reverse fn
+// slice fn
 
-// const arr = [2, 45, 78, 1];
-const arr = ["Rar", 45, true, 1];
+const arr = [2, 45, 78, 1];
+// const arr = ["Rar", 45, true, 1];
 
-const reverse = (arr) => {
+const slice = (arr, start, end) => {
+  start = start || 0;
+  end = end || arr.length;
 
-  const reversedArray = []
+  start = start < 0 ? Math.max(arr.length + start, 0) : start;
+  end = end < 0 ? Math.max(arr.length + end, 0) : end;
 
-  for (let index = arr.length - 1; index >= 0; index--) {
-    reversedArray.push(arr[index])
+  const slicedArray = [];
+
+  for (let index = start; index < end; index++) {
+    slicedArray.push(arr[index]);
   }
 
-  return reversedArray
+  return slicedArray;
 };
 
-console.log(reverse(arr));
+console.log(slice(arr, 0, 2));
+console.log(slice(arr, -13, 2));
