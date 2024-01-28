@@ -1,8 +1,16 @@
-const split = (str) => [...str]
-const splitArrayFrom = (str) => Array.from(str)
-const splitAssign = (str) => Object.assign([], str)
+const split = (str = "") => {
+  
+  const newArr = []
+  let i = 0
 
+  //if (!str) return []
 
-console.log(split("RaR"))
-console.log(splitArrayFrom("RaR"))
-console.log(splitAssign("RaR"))
+  while (str[i] !== undefined) {
+    newArr.push(str[i])
+    i++
+  }
+
+  return newArr
+}
+
+console.log(split())
