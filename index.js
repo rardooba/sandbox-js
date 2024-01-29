@@ -1,16 +1,14 @@
-const split = (str = "") => {
+const str = "Hello Rar 🚨 How are U ?"
+
+const find = (str, callback) => {
   
-  const newArr = []
-  let i = 0
-
-  //if (!str) return []
-
-  while (str[i] !== undefined) {
-    newArr.push(str[i])
-    i++
+  const strToArray = [...str]
+  for (let i = 0; i < strToArray.length; i++) {
+    console.log(strToArray[i])
+    if (callback(strToArray[i])) return true
   }
 
-  return newArr
+  return false
 }
 
-console.log(split())
+console.log(find(str, item => item === "🚨"))
