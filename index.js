@@ -1,8 +1,7 @@
-const isAuthorized = ({age}) => age > 18;
+const double = (n) => 2 * n
+const substract = (n) => n - 1
 
-const user = {
-  username: "Rar",
-  age: 19
-}
+const calc = (func, number) => func(number)
 
-console.log(isAuthorized(user))
+console.log(calc(double, 5))
+console.log(calc(substract, 5))
