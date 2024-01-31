@@ -1,8 +1,10 @@
-const addTo = (a) => {
-  
-  const add = (b) => a + b
-  
-  return add
+var usernme = 'Tyler'
+
+function foo () {
+	bar = 'Created in foo without declaration'
 }
-const addTo5 = addTo(5)
-console.log(addTo5(2))
+
+foo()
+
+console.log(window.username) // Tyler
+console.log(window.bar) // Created in foo without declaration
