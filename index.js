@@ -1,7 +1,8 @@
-const double = (n) => 2 * n
-const substract = (n) => n - 1
-
-const calc = (func, number) => func(number)
-
-console.log(calc(double, 5))
-console.log(calc(substract, 5))
+const addTo = (a) => {
+  
+  const add = (b) => a + b
+  
+  return add
+}
+const addTo5 = addTo(5)
+console.log(addTo5(2))
