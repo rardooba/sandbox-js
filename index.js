@@ -1,14 +1,8 @@
-const str = "Hello Rar 🚨 How are U ?"
+const isAuthorized = ({age}) => age > 18;
 
-const find = (str, callback) => {
-  
-  const strToArray = [...str]
-  for (let i = 0; i < strToArray.length; i++) {
-    console.log(strToArray[i])
-    if (callback(strToArray[i])) return true
-  }
-
-  return false
+const user = {
+  username: "Rar",
+  age: 19
 }
 
-console.log(find(str, item => item === "🚨"))
+console.log(isAuthorized(user))
