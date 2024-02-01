@@ -1,10 +1,16 @@
-var usernme = 'Tyler'
+const array = [12, 34, 234, 1n, 2, 1234, 0];
 
-function foo () {
-	bar = 'Created in foo without declaration'
+const filter = (arr, callback) => {
+
+  const newArr = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) newArr.push(arr[i])
+  }
+
+  return newArr
 }
 
-foo()
 
-console.log(window.username) // Tyler
-console.log(window.bar) // Created in foo without declaration
+console.log(filter(array, (item) => item > 10))
+
