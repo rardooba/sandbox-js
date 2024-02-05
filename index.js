@@ -1,13 +1,17 @@
 const array = ["😓", "👽", "😜"]
 
-const includes = (arr, callback) => {
+const someFn = (arr, callback) => {
 
   for (let i = 0; i < arr.length; i++) {
     if (callback(arr[i])) return true
   }
+
   return false
+
 }
 
-console.log(includes(array, (item) => item === "👽"))
 
-
+console.log(someFn(array, (item) => item === "👽" ))
+console.log(someFn(array, (item) => item === "Rar" ))
+console.log(array.some((item) => item === "👽" ));
+console.log(array.some((item) => item === "Rar" ));
