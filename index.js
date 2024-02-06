@@ -1,17 +1,15 @@
-const array = ["😓", "👽", "😜"]
-
-const someFn = (arr, callback) => {
-
-  for (let i = 0; i < arr.length; i++) {
-    if (callback(arr[i])) return true
-  }
-
-  return false
-
+const user = {
+  pseudo: "Rar",
+  character: "A.K.I",
+  mail: "rar@dooba.xyz",
+  reputation: 23,
+  isAdmin: false
 }
 
+let incrementLike = user.reputation++
 
-console.log(someFn(array, (item) => item === "👽" ))
-console.log(someFn(array, (item) => item === "Rar" ))
-console.log(array.some((item) => item === "👽" ));
-console.log(array.some((item) => item === "Rar" ));
+incrementLike + 1
+incrementLike + 1
+incrementLike + 1
+
+console.log(user, incrementLike)
