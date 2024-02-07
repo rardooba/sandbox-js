@@ -1,15 +1,13 @@
-const user = {
-  pseudo: "Rar",
-  character: "A.K.I",
-  mail: "rar@dooba.xyz",
-  reputation: 23,
-  isAdmin: false
-}
+// const user = {
+//   pseudo: "Rar",
+//   character: "A.K.I",
+//   mail: "rar@dooba.xyz",
+//   reputation: 23,
+//   isAdmin: false
+// }
 
-let incrementLike = user.reputation++
+const array = [2, 34, 2, 123, 75, 8]
 
-incrementLike + 1
-incrementLike + 1
-incrementLike + 1
+const theHigherNumber = array.reduce((acc, cur) => cur + acc, 0)
 
-console.log(user, incrementLike)
+console.log(theHigherNumber)
