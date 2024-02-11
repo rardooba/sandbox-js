@@ -1,15 +1,16 @@
-const numbers = [5, 1.3, 23, -0.5, 3.7, 345, 10, -6,7]
+const numbers = [2.3, -0.34, 0.2, -3, 9, 199, 0.2]
 
-const closestToZero = (arr) => {
+const closestToZero = (numbers) => {
+  let closest = numbers[0]
+  numbers.length === 0 && 0
 
-  let closest = arr[0]
+  for (const number of numbers) {
+    const numberAbs = Math.abs(number)
+    const closestAbs = Math.abs(closest)
 
-  for (const number of arr) {
-    const absNumber = Math.abs(number)
-    const absClosest = Math.abs(closest)
-    if (absNumber < absClosest) {
+    if (numberAbs < closestAbs) {
       closest = number
-    } else if (absNumber === absClosest) {
+    } else if (numberAbs === closestAbs) {
       closest = number
     }
   }
