@@ -1,6 +1,7 @@
 {
   "name": "sandbox",
   "version": "1.0.0",
+  "type": "module",
   "description": "> Calculator project.",
   "main": "index.js",
   "scripts": {
@@ -10,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "prompt-sync": "^4.2.0",
     "simple-git": "^3.22.0"
   }
 }
