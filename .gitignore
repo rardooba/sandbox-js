@@ -71,6 +71,10 @@ web_modules/
 
 # rarbot
 rarbot.js
+citations.json
+algos.json
+dbz-goku.json
+emotions.json
 
 # Yarn Integrity file
 .yarn-integrity
