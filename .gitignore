@@ -75,6 +75,7 @@ citations.json
 algos.json
 dbz-goku.json
 emotions.json
+.gitignore
 
 # Yarn Integrity file
 .yarn-integrity
