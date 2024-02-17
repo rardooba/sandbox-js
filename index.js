@@ -1,4 +1,8 @@
-const array = [1, 2, 3, 4]
+// Week-end en famille ! 
 
-const recursiveFn = (arr, count) => { 
-}
+const obj = [
+  {username: "Rar", age: 12},
+  {username: "Dooba", age: 14}
+]
+
+console.log(obj.map(({username, age}) => [username, age]))
