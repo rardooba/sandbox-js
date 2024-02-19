@@ -14,7 +14,7 @@ Choose an operator:
 
 let operator =  Number(await prompt("Enter operator number : "));
 
-while (operator !== 1 && operator !== 2 && operator !== 3 && operator !== 4 && operator !== 5) {
+while (operator !== 1 && operator !== 2 && operator !== 3 && operator !== 4) {
   console.error("operator is not a number or choose operator")
   operator =  Number(await prompt("Enter operator number : "))
 }
@@ -24,13 +24,14 @@ const validateNumber = (number, limitNumber) => {
     console.error(`Error : ${number} is not a number or is too big / too small (max: ${limitNumber})`)
     process.exit(1)
   }  
+
+  return number
 }  
 
-//! Error here
 const promptNumber = async (message) => Number(await prompt(`${message} : `));
 
-const firstNumber =  validateNumber(promptNumber("Enter the first number"), LIMIT_NUMBER);
-const secondNumber =  validateNumber(promptNumber("Enter the second number"), LIMIT_NUMBER);
+const firstNumber =  validateNumber(await promptNumber("Enter the first number"), LIMIT_NUMBER);
+const secondNumber =  validateNumber(await promptNumber("Enter the second number"), LIMIT_NUMBER);
 
 const add = (a, b) => a + b
 const minus = (a, b) => a - b
