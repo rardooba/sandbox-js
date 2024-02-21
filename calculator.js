@@ -40,11 +40,11 @@ const validateNumber = (number, limitNumber) => {
 const promptNumber = async (message) => Number(await prompt(`${message} : `));
 
 const firstNumber = validateNumber(
-  await promptNumber("Enter the first number"),
+  await promptNumber("Enter the first number !"),
   LIMIT_NUMBER
 );
 const secondNumber = validateNumber(
-  await promptNumber("Enter the second number"),
+  await promptNumber("Enter the second number !"),
   LIMIT_NUMBER
 );
 
