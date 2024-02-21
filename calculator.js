@@ -12,24 +12,19 @@ Choose an operator:
 4. Division
 `);
 
+let operator
 
-
-const promptOperator = async() => {
-  let operator = Number(await prompt("Enter operator number : "))
+const promptOperator = async(operator) => {
+  operator = Number(await prompt("Enter operator number : "))
 
   if (operator !== 1 && operator !== 2 && operator !== 3 && operator !== 4) {
-    return promptOperator();
+    return promptOperator(operator);
   }
 
   return operator
 }
 
-let operator = await promptOperator()
-
-// while (operator !== 1 && operator !== 2 && operator !== 3 && operator !== 4) {
-//   console.error("operator is not a number or choose operator");
-//   operator = Number(await prompt("Enter operator number : "));
-// }
+operator = await promptOperator(operator)
 
 const validateNumber = (number, limitNumber) => {
   if (Number.isNaN(number) || Math.abs(number) > limitNumber) {
@@ -54,14 +49,14 @@ const secondNumber = validateNumber(
 );
 
 const calculateResult = (operator, firstNumber, secondNumber) => {
-  if (operator === 1) console.log(firstNumber + secondNumber);
-  if (operator === 2) console.log(firstNumber - secondNumber);
-  if (operator === 3) console.log(firstNumber * secondNumber);
+  if (operator === 1) return firstNumber + secondNumber;
+  if (operator === 2) return firstNumber - secondNumber;
+  if (operator === 3) return firstNumber * secondNumber;
   if (operator === 4)
-    console.log(firstNumber === 0 || secondNumber === 0
+    return firstNumber === 0 || secondNumber === 0
       ? process.exit(1)
-      : firstNumber / secondNumber);
-  return;
+      : firstNumber / secondNumber;
+  return 0;
 };
 
-calculateResult(operator, firstNumber, secondNumber);
+console.log(calculateResult(operator, firstNumber, secondNumber));
