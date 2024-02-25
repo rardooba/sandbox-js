@@ -1,5 +1,15 @@
-// Week-end en famille ! 
+const user = {
+  firstname : "Nanda",
+  lastname: "Dooba"
+}
 
-const str = "Rardooba"
+const entries = (object) => {
+  const [...key] = Object.keys(object)
+  const [...value] = Object.values(object)
 
-console.log([...str])
+  return [key, value]
+
+}
+
+console.log(entries(user))
+
