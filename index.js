@@ -1,15 +1,14 @@
-const user = {
-  firstname : "Nanda",
-  lastname: "Dooba"
+class Animal {
+  constructor(name, gender) {
+    this.name = name;
+    this.gender = gender;
+  }
+
+  sayHello() {
+    console.log(this.name)
+  }
 }
 
-const entries = (object) => {
-  const [...key] = Object.keys(object)
-  const [...value] = Object.values(object)
+const cat = new Animal("Rajha", "Cat")
 
-  return [key, value]
-
-}
-
-console.log(entries(user))
-
+console.log(cat.sayHello())
