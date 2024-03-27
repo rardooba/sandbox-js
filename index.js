@@ -1,39 +1,11 @@
-const PushButton = () => {
-  console.log(`
-  👇
-  🛎️
-  `)
-} 
-const home = () => {
-const tv = "📺" 
-const tvOff = "🚫"
-let isTv = false
-  const telecommad = {
-    on: () => {
-      isTv = true
-      PushButton
-    },
-    off: () => {
-      isTv = false
-      PushButton
-    },
-    getTv: () => {
-      if(isTv) return tv
-      return tvOff
-    }
+const printPyramid = (height) => {
+
+  for (let i = 0; i < height; i++){
+    let row = " ".repeat(height - i - 1)
+    row += "#".repeat(i * 2 + 1)
+    console.log(row)
   }
 
-  return telecommad
 }
 
-const telecommad = home()
-
-PushButton()
-telecommad.on()
-console.log("Show tv: ", telecommad.getTv())
-PushButton()
-telecommad.off()
-console.log("Show tv: ", telecommad.getTv())
-
-
-
+printPyramid(5)
