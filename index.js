@@ -1,13 +1,23 @@
-// la closure va nous permettre de stocker un password qui ne sera jamais accessible avec lock.password
 
-const createLock = (password) => {
-  const checkPassword = (attempt) => attempt === password;
-  return checkPassword;
+const fn = () => console.log("Hello");
+
+const rateLimiter = (maxCalls) => {
+
+  let calls = 0
+  const limiter = (callback) => {
+    if (calls >= maxCalls) return
+    callback()
+    calls++
+  }
+
+  return limiter
 };
 
-const lock = createLock("securePassword");
-const lock2 = createLock(" ");
+const max3Calls = rateLimiter(3);
 
-console.log(lock("securePassword"));
-console.log(lock("wrongPassword"));
-console.log(lock2(" "));
+
+max3Calls(fn); // Hello
+max3Calls(fn); // Hello
+max3Calls(fn); // Hello
+max3Calls(fn); // Ne fait rien, car on a atteint la limite d'appels
+
