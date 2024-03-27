@@ -1,14 +1,13 @@
-const printPyramid = (height) => {
+// la closure va nous permettre de stocker un password qui ne sera jamais accessible avec lock.password
 
-  const addLine = (index) => {
-    let row = " ".repeat(height - index - 1) //4
-    row += "#".repeat(index * 2 + 1)
-    console.log(row)
-  }
-  
-  for (let i = 0; i < height; i++){
-    addLine(i)
-  }
-}
+const createLock = (password) => {
+  const checkPassword = (attempt) => attempt === password;
+  return checkPassword;
+};
 
-printPyramid(10)
+const lock = createLock("securePassword");
+const lock2 = createLock(" ");
+
+console.log(lock("securePassword"));
+console.log(lock("wrongPassword"));
+console.log(lock2(" "));
