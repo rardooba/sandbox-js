@@ -2,7 +2,7 @@
   "name": "sandbox",
   "version": "1.0.0",
   "type": "module",
-  "description": "> Calculator project.",
+  "description": "> Calculator project & Guest Number project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "prompt-sync": "^4.2.0",
+    "readline-sync": "^1.4.10",
     "simple-git": "^3.22.0"
   }
 }
