@@ -1,39 +1,62 @@
-import {prompt} from "./prompt.js"
+import { prompt } from "./prompt.js";
 
-function getRandomInt(min, max) {
+const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
+};
 
-const targetNumber = getRandomInt(0, 100)
+const isValidNumber = (number) => {
+  return !Number.isNaN(number) && number >= 0 && number <= 100;
+};
 
-const guestNumber = (targetNumber, numberOfGuest) => {
+const game = () => {
+  const targetNumber = getRandomNumber(0, 100);
+  let attemptCount = 0;
 
+  const guestNumber = () => {
+    console.log(targetNumber);
+    const userNumber = Number(prompt("Enter the number between 0 to 100: "));
+    attemptCount++;
 
-  console.log(targetNumber)
-  const userNumber = Number(prompt("Enter the number between 0 to 100: "))
-  
+    if (!isValidNumber(userNumber)) {
+      console.log(
+        "🛑 The entered number is invalid. It must be between 0 and 100.\n\n"
+      );
+      return guestNumber();
+    }
 
-  if (userNumber !== targetNumber || Number.isNaN(userNumber) || userNumber > 100) {
-    
-    
-    if(userNumber > targetNumber) {    
-      console.log("📈 The entered number is **too big**") 
-      return guestNumber(targetNumber, ++numberOfGuest)
-    } 
-    if(userNumber < targetNumber) {
-      console.log("📉 The entered number is **too small**")
-      return guestNumber(targetNumber, ++numberOfGuest)
-    } 
+    if (userNumber > targetNumber) {
+      console.log("📈 The entered number is **too big**");
+      guestNumber();
+      return;
+    }
+    if (userNumber < targetNumber) {
+      console.log("📉 The entered number is **too small**");
+      guestNumber();
+      return;
+    }
 
-    return guestNumber(targetNumber, ++numberOfGuest)
-  }
+    console.log(
+      `🟢 Well done! The random number was indeed ${targetNumber} ✨ You succeeded in ✨ ${attemptCount} ${
+        attemptCount <= 1 ? "attempt" : "attempts"
+      } !`
+    );
+  };
 
+  const restartGame = () => {
+    const retry = prompt("Do you want to play again? (Y/N): ");
 
-  if (userNumber === targetNumber) { 
-    console.log(`🟢 Congratulation ! The number is ${targetNumber} with ✨ ${numberOfGuest} ${numberOfGuest <= 1 ? "attempt" : "attempts"} !`) 
-  }
-}
+    if (retry.toUpperCase() === "Y" || retry === "y") return game();
+    else if (retry.toUpperCase() === "N" || retry === "n")
+      console.log("Thank you for playing! Goodbye.");
+    else {
+      console.log("Invalid choice. Please enter Y or N.");
+      restartGame();
+    }
+  };
 
+  guestNumber()
+  restartGame()  
+};
 
 console.log(`
 Welcome to the Number Guessing Game! 🎮
@@ -46,14 +69,6 @@ Rules:
 5. The game continues until you guess the correct number.
 
 Let's get started! 🚀
-`)
+`);
 
-const retryGame = (targetNumber) => {
-  guestNumber(targetNumber, 0)
-  const retry = prompt("Do you want to retry ? (Y/N): ")
-  targetNumber = getRandomInt(0, 100)
-  if(retry === "Y" || retry === "y") return retryGame(targetNumber)
-  if(retry === "N" || retry === "n") console.log("Thank you for playing! Goodbye.")
-}
-
-retryGame(targetNumber)
+game();
